@@ -5,26 +5,28 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalDate;
+import java.time.Instant;
+import java.util.UUID;
 
+@Table(name = "movie")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movie")
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long Id;
+    private UUID id;
 
     @Column(name = "title")
+    @NonNull
     private String title;
 
     @Column(name = "description")
     private String description;
 
     @Enumerated(EnumType.STRING)
+    @NonNull
     @Column(name = "genre")
     private GenreEnum genre;
 
@@ -32,6 +34,8 @@ public class Movie {
     private Float rating;
 
     @Column(name = "release_date")
-    private LocalDate releaseDate;
+    @NonNull
+    @Builder.Default
+    private Instant releaseDate = Instant.now();
 
 }
