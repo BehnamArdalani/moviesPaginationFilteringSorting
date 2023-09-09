@@ -3,7 +3,6 @@ package com.example.controllerWithFilters.config;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -13,17 +12,16 @@ import javax.sql.DataSource;
 @Getter
 @Setter
 @Configuration
-@ConfigurationProperties(prefix = "spring.data.postgres")
 public class PostgresConfig {
-    @Value("${driver-class-name}")
+    @Value("${spring.data.postgres.driver-class-name}")
     private String driverClassName;
-    @Value("${url}")
+    @Value("${spring.data.postgres.url}")
     private String url;
-    @Value("${schema}")
+    @Value("${spring.data.postgres.schema}")
     private String schema;
-    @Value("${username}")
+    @Value("${spring.data.postgres.username}")
     private String username;
-    @Value("${password}")
+    @Value("${spring.data.postgres.password}")
     private String password;
 
     @Bean
