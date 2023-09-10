@@ -1,2 +1,2 @@
 # moviesPaginationFilteringSorting
-An example for pagination, sorting and filtering an end-point result using spring boot
+An example of pagination, sorting and filtering the api controller results in spring boot.
