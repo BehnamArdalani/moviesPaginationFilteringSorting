@@ -4,7 +4,7 @@ import com.example.controllerWithFilters.model.enums.GenreEnum;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -16,6 +16,7 @@ import java.util.UUID;
 public class Movie {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(name = "title")
@@ -33,6 +34,6 @@ public class Movie {
 
     @Column(name = "release_date")
     @Builder.Default
-    private Instant releaseDate = Instant.now();
+    private Date releaseDate = new Date();
 
 }
